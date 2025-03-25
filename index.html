@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Expense Tracker</title>
+    
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>💰 Personal Expense Tracker</h1>
+            <div class="total-display">
+                Total: KSh <span id="total-amount">0.00</span>
+            </div>
+        </header>
+
+        <main>
+            <section class="form-section">
+                <h2>Add New Expense</h2>
+                <form id="expense-form">
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <input type="text" id="description" placeholder="e.g. Groceries" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="amount">Amount (KSh)</label>
+                        <input type="number" id="amount" min="0.01" step="0.01" placeholder="e.g. 250.50" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="category">Category</label>
+                        <select id="category" required>
+                            <option value="">Select Category</option>
+                            <option value="Food">Food</option>
+                            <option value="Transport">Transport</option>
+                            <option value="Housing">Housing</option>
+                            <option value="Utilities">Utilities</option>
+                            <option value="Entertainment">Entertainment</option>
+                        </select>
+                    </div>
+                    <button type="submit">Add Expense</button>
+                </form>
+            </section>
+
+            <section class="transactions-section">
+                <div class="filter-controls">
+                    <label for="filter-category">Filter:</label>
+                    <select id="filter-category">
+                        <option value="all">All Categories</option>
+                        <option value="Food">Food</option>
+                        <option value="Transport">Transport</option>
+                        <option value="Housing">Housing</option>
+                        <option value="Utilities">Utilities</option>
+                    </select>
+                </div>
+                
+                <div id="transactions-list">
+                    <!-- Transactions will appear here -->
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
