@@ -66,3 +66,44 @@ async function handleAddExpense(e) {
         console.error("Submission Error:", error);
     }
 }
+function renderTransactions(transactionsToRender = transactions) {
+    transactionsList.innerHTML = '';
+    transactionsToRender.forEach(transaction => {
+        const transactionEl = document.createElement('div');
+        transactionEl.className = 'transaction';
+        transactionEl.innerHTML = `
+            <div class="info">
+                <span class="description">${transaction.description}</span>
+                <span class="category">${transaction.category}</span>
+            </div>
+            <div class="amount">KSh ${transaction.amount}</div>
+            <button class="delete-btn" data-id="${transaction.id}">×</button>
+        `;
+        transactionsList.appendChild(transactionEl);
+    });
+
+    // Delete handlers
+    document.querySelectorAll('.delete-btn').forEach(btn => {
+        btn.addEventListener('click', handleDelete);
+    });
+}
+
+async function handleDelete(e) {
+    const id = e.target.dataset.id;
+    try {
+        await fetch(`http://localhost:3000/transactions/${id}`, { method: 'DELETE' });
+        transactions = transactions.filter(t => t.id != id);
+        renderTransactions();
+    } catch (error) {
+        console.error("Delete Error:", error);
+    }
+}
+
+// Filter functionality
+filterCategory.addEventListener('change', filterTransactions);
+
+function filterTransactions() {
+    const category = filterCategory.value;
+    const filtered = category === 'all' ? transactions : transactions.filter(t => t.category === category);
+    renderTransactions(filtered);
+}
