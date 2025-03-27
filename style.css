@@ -1,4 +1,16 @@
-*{
+:root {
+    --primary: #4361ee;
+    --food: #4cc9f0;
+    --transport: #f8961e;
+    --housing: #7209b7;
+    --airtime: #f72585;
+    --entertainment: #90be6d;
+    --bills: #577590;
+    --light: #f8f9fa;
+    --dark: #212529;
+}
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -14,4 +26,139 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    color: var(--primary);
+}
+
+.subtitle {
+    color: #666;
+}
+
+.form-section {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+button {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s;
+}
+
+button:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+.summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#filter-category {
+    padding: 8px;
+    border-radius: 4px;
+}
+
+#transactions-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.transaction {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.transaction-info {
+    flex: 1;
+}
+
+.description {
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.category {
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    color: white;
+    display: inline-block;
+}
+
+.category.food { background: var(--food); }
+.category.transport { background: var(--transport); }
+.category.housing { background: var(--housing); }
+.category.airtime { background: var(--airtime); }
+.category.entertainment { background: var(--entertainment); }
+.category.bills { background: var(--bills); }
+
+.transaction-amount {
+    font-weight: bold;
+    margin: 0 15px;
+}
+
+.delete-btn {
+    background: none;
+    border: none;
+    color: #e74c3c;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 15px;
+    }
+    
+    .summary {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
 }
