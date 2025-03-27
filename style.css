@@ -1,13 +1,10 @@
 :root {
     --primary: #4361ee;
-    --food: #4cc9f0;
-    --transport: #f8961e;
-    --housing: #7209b7;
-    --airtime: #f72585;
-    --entertainment: #90be6d;
-    --bills: #577590;
+    --secondary: #3a0ca3;
+    --accent: #f72585;
     --light: #f8f9fa;
     --dark: #212529;
+    --success: #4cc9f0;
 }
 
 * {
@@ -28,61 +25,98 @@ body {
     align-items: center;
 }
 
+.hidden {
+    display: none !important;
+}
+
 .container {
     width: 100%;
     max-width: 800px;
     background: white;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+    overflow: hidden;
 }
 
-header {
+/* Landing Page */
+.landing-header {
+    padding: 3rem;
     text-align: center;
-    margin-bottom: 30px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
 }
 
-header h1 {
+.landing-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.landing-header p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+#get-started {
+    background-color: white;
     color: var(--primary);
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
 }
 
-.subtitle {
-    color: #666;
+#get-started:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* App Content */
+#app-content {
+    padding: 2rem;
 }
 
 .form-section {
-    margin-bottom: 30px;
-    padding-bottom: 20px;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
     border-bottom: 1px solid #eee;
 }
 
 .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 1.2rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
 }
 
 input, select {
     width: 100%;
-    padding: 10px;
+    padding: 0.8rem;
     border: 1px solid #ddd;
     border-radius: 4px;
     font-size: 1rem;
 }
 
 button {
-    background: var(--primary);
+    background-color: var(--primary);
     color: white;
     border: none;
-    padding: 12px;
+    padding: 0.8rem;
     border-radius: 4px;
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
-    width: 100%;
     transition: all 0.3s;
 }
 
 button:hover {
-    opacity: 0.9;
+    background-color: var(--secondary);
     transform: translateY(-2px);
 }
 
@@ -90,75 +124,73 @@ button:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 1.5rem;
+}
+
+.summary h3 {
+    color: var(--dark);
 }
 
 #filter-category {
-    padding: 8px;
+    padding: 0.5rem;
     border-radius: 4px;
 }
 
 #transactions-list {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 1rem;
 }
 
 .transaction {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px;
-    background: white;
+    padding: 1rem;
+    background-color: white;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s;
+}
+
+.transaction:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .transaction-info {
     flex: 1;
 }
 
-.description {
-    font-weight: 600;
-    margin-bottom: 5px;
-}
-
-.category {
-    padding: 3px 8px;
-    border-radius: 12px;
-    font-size: 0.8rem;
-    color: white;
-    display: inline-block;
-}
-
-.category.food { background: var(--food); }
-.category.transport { background: var(--transport); }
-.category.housing { background: var(--housing); }
-.category.airtime { background: var(--airtime); }
-.category.entertainment { background: var(--entertainment); }
-.category.bills { background: var(--bills); }
-
 .transaction-amount {
     font-weight: bold;
-    margin: 0 15px;
+    margin-right: 1rem;
 }
 
 .delete-btn {
     background: none;
     border: none;
-    color: #e74c3c;
+    color: var(--accent);
     font-size: 1.2rem;
     cursor: pointer;
 }
 
 @media (max-width: 600px) {
     .container {
-        padding: 15px;
+        border-radius: 0;
+    }
+    
+    .landing-header {
+        padding: 2rem 1rem;
+    }
+    
+    #app-content {
+        padding: 1rem;
     }
     
     .summary {
         flex-direction: column;
         align-items: flex-start;
-        gap: 10px;
+        gap: 1rem;
     }
 }
