@@ -107,3 +107,27 @@ function filterTransactions() {
     const filtered = category === 'all' ? transactions : transactions.filter(t => t.category === category);
     renderTransactions(filtered);
 }
+// Enhanced render function with KSh formatting
+function renderTransactions(transactionsToRender = transactions) {
+    transactionsList.innerHTML = '';
+    transactionsToRender.forEach(transaction => {
+        const transactionEl = document.createElement('div');
+        transactionEl.className = 'transaction';
+        transactionEl.innerHTML = `
+            <div class="info">
+                <span class="description">${transaction.description}</span>
+                <span class="category ${transaction.category.toLowerCase()}">${transaction.category}</span>
+            </div>
+            <div class="amount">KSh ${transaction.amount.toLocaleString('en-KE')}</div>
+            <button class="delete-btn" data-id="${transaction.id}">×</button>
+        `;
+        transactionsList.appendChild(transactionEl);
+    });
+    updateTotal();
+}
+
+// Update total display
+function updateTotal() {
+    const total = transactions.reduce((sum, transaction) => sum + transaction.amount, 0);
+    totalAmountElement.textContent = total.toLocaleString('en-KE');
+}
