@@ -40,3 +40,29 @@ function renderTransactions() {
         transactionsList.appendChild(transactionEl);
     });
 }
+expenseForm.addEventListener('submit', handleAddExpense);
+
+async function handleAddExpense(e) {
+    e.preventDefault();
+    
+    const newTransaction = {
+        description: document.getElementById('description').value.trim(),
+        amount: parseInt(document.getElementById('amount').value),
+        category: document.getElementById('category').value
+    };
+
+    if (!newTransaction.description || !newTransaction.amount) return;
+
+    try {
+        const response = await fetch('http://localhost:3000/transactions', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(newTransaction)
+        });
+        transactions.push(await response.json());
+        renderTransactions();
+        expenseForm.reset();
+    } catch (error) {
+        console.error("Submission Error:", error);
+    }
+}
