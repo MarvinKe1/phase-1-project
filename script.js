@@ -36,7 +36,7 @@ async function fetchTransactions() {
         updateTotal();
     } catch (error) {
         console.error('Error:', error);
-        // Kenyan sample data
+        //  sample data
         transactions = [
             { id: 1, description: "Chapati Beans", amount: 120, category: "Food" },
             { id: 2, description: "Matatu Fare", amount: 50, category: "Transport" },
