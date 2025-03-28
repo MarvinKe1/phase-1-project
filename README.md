@@ -2,7 +2,7 @@
 # Personal Expense Tracker
 
 ## Description
-A single-page application to track personal expenses
+A simple single-page application built to track personal expenses
 
 ## Features
 - Add expenses with description, amount (KSh), and category
@@ -23,4 +23,4 @@ A single-page application to track personal expenses
 Marvin Mango
 
 ## License
-Moringa School
+Moringa School 
