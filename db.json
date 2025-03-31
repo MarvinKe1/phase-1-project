@@ -1,33 +1,16 @@
 {
-    "transactions": [{
-    "id": 1,
-    "description": "Chapati Beans",
-    "amount": 120,
-    "category": "Food"
-  },
-  {
-    "id": 2,
-    "description": "Matatu Fare",
-    "amount": 50,
-    "category": "Transport"
-  },
-  {
-    "id": 3,
-    "description": "Safaricom Airtime",
-    "amount": 100,
-    "category": "Airtime"
-  },
-  {
-    "id": 4,
-    "description": "Rent",
-    "amount": 15000,
-    "category": "Housing"
-  },
-  {
-    "id": 5,
-    "description": "Movie Ticket",
-    "amount": 800,
-    "category": "Entertainment"
-  }
-]
+  "transactions": [
+    {
+      "id": "7e74",
+      "description": "mayai",
+      "amount": 100,
+      "category": "Food"
+    },
+    {
+      "id": "2c95",
+      "description": "rent",
+      "amount": 100,
+      "category": "Housing"
+    }
+  ]
 }
